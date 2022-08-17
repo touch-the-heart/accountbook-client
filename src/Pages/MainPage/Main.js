@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import background from "../../Imgs/background.png";
 import MainImg from "../../Imgs/MainImg.png";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   return (
@@ -9,9 +10,14 @@ export default function Main() {
       <Brand>By SimGuem</Brand>
       <Mainimg src={MainImg}></Mainimg>
       <Linked>
-        <Monthly>Monthly</Monthly>
+        <Monthly>
+          <Link to="/monthly">Monthly</Link>
+        </Monthly>
         <Weekly>Weekly</Weekly>
-        <Daily>Daily</Daily>
+        <Daily>
+          {" "}
+          <Link to="/daily">Daily</Link>
+        </Daily>
       </Linked>
     </Container>
   );
@@ -23,9 +29,9 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background-size: cover;
   background-image: url(${background});
-  background-size: cover;
   text-align: center;
 `;
 
@@ -48,6 +54,7 @@ const Mainimg = styled.img`
 
 const Linked = styled.div`
   margin-top: 55px;
+  padding-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +65,10 @@ const Monthly = styled.span`
   cursor: pointer;
   :hover {
     text-shadow: 3px 3px 5px #eed600;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 const Weekly = styled.span`
@@ -75,5 +86,9 @@ const Daily = styled.span`
   cursor: pointer;
   :hover {
     text-shadow: 3px 3px 5px #e58f4e;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
